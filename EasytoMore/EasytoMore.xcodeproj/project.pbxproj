@@ -1,0 +1,474 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F100EA4E1834DDCD0022A176 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F100EA4D1834DDCD0022A176 /* Foundation.framework */; };
+		F100EA501834DDCD0022A176 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F100EA4F1834DDCD0022A176 /* CoreGraphics.framework */; };
+		F100EA521834DDCD0022A176 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F100EA511834DDCD0022A176 /* UIKit.framework */; };
+		F100EA581834DDCD0022A176 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F100EA561834DDCD0022A176 /* InfoPlist.strings */; };
+		F100EA5A1834DDCD0022A176 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F100EA591834DDCD0022A176 /* main.m */; };
+		F100EA5E1834DDCD0022A176 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F100EA5D1834DDCD0022A176 /* AppDelegate.m */; };
+		F100EA601834DDCD0022A176 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F100EA5F1834DDCD0022A176 /* Images.xcassets */; };
+		F100EA671834DDCD0022A176 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F100EA661834DDCD0022A176 /* XCTest.framework */; };
+		F100EA681834DDCD0022A176 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F100EA4D1834DDCD0022A176 /* Foundation.framework */; };
+		F100EA691834DDCD0022A176 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F100EA511834DDCD0022A176 /* UIKit.framework */; };
+		F100EA711834DDCD0022A176 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F100EA6F1834DDCD0022A176 /* InfoPlist.strings */; };
+		F100EA731834DDCD0022A176 /* EasytoMoreTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F100EA721834DDCD0022A176 /* EasytoMoreTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F100EA6A1834DDCD0022A176 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F100EA421834DDCD0022A176 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F100EA491834DDCD0022A176;
+			remoteInfo = EasytoMore;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		F100EA4A1834DDCD0022A176 /* EasytoMore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EasytoMore.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F100EA4D1834DDCD0022A176 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		F100EA4F1834DDCD0022A176 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		F100EA511834DDCD0022A176 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		F100EA551834DDCD0022A176 /* EasytoMore-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "EasytoMore-Info.plist"; sourceTree = "<group>"; };
+		F100EA571834DDCD0022A176 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F100EA591834DDCD0022A176 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F100EA5B1834DDCD0022A176 /* EasytoMore-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EasytoMore-Prefix.pch"; sourceTree = "<group>"; };
+		F100EA5C1834DDCD0022A176 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		F100EA5D1834DDCD0022A176 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		F100EA5F1834DDCD0022A176 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		F100EA651834DDCD0022A176 /* EasytoMoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EasytoMoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F100EA661834DDCD0022A176 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		F100EA6E1834DDCD0022A176 /* EasytoMoreTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "EasytoMoreTests-Info.plist"; sourceTree = "<group>"; };
+		F100EA701834DDCD0022A176 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F100EA721834DDCD0022A176 /* EasytoMoreTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EasytoMoreTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F100EA471834DDCD0022A176 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F100EA501834DDCD0022A176 /* CoreGraphics.framework in Frameworks */,
+				F100EA521834DDCD0022A176 /* UIKit.framework in Frameworks */,
+				F100EA4E1834DDCD0022A176 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F100EA621834DDCD0022A176 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F100EA671834DDCD0022A176 /* XCTest.framework in Frameworks */,
+				F100EA691834DDCD0022A176 /* UIKit.framework in Frameworks */,
+				F100EA681834DDCD0022A176 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F100EA411834DDCD0022A176 = {
+			isa = PBXGroup;
+			children = (
+				F100EA531834DDCD0022A176 /* EasytoMore */,
+				F100EA6C1834DDCD0022A176 /* EasytoMoreTests */,
+				F100EA4C1834DDCD0022A176 /* Frameworks */,
+				F100EA4B1834DDCD0022A176 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F100EA4B1834DDCD0022A176 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F100EA4A1834DDCD0022A176 /* EasytoMore.app */,
+				F100EA651834DDCD0022A176 /* EasytoMoreTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F100EA4C1834DDCD0022A176 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F100EA4D1834DDCD0022A176 /* Foundation.framework */,
+				F100EA4F1834DDCD0022A176 /* CoreGraphics.framework */,
+				F100EA511834DDCD0022A176 /* UIKit.framework */,
+				F100EA661834DDCD0022A176 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F100EA531834DDCD0022A176 /* EasytoMore */ = {
+			isa = PBXGroup;
+			children = (
+				F100EA5C1834DDCD0022A176 /* AppDelegate.h */,
+				F100EA5D1834DDCD0022A176 /* AppDelegate.m */,
+				F100EA5F1834DDCD0022A176 /* Images.xcassets */,
+				F100EA541834DDCD0022A176 /* Supporting Files */,
+			);
+			path = EasytoMore;
+			sourceTree = "<group>";
+		};
+		F100EA541834DDCD0022A176 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F100EA551834DDCD0022A176 /* EasytoMore-Info.plist */,
+				F100EA561834DDCD0022A176 /* InfoPlist.strings */,
+				F100EA591834DDCD0022A176 /* main.m */,
+				F100EA5B1834DDCD0022A176 /* EasytoMore-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F100EA6C1834DDCD0022A176 /* EasytoMoreTests */ = {
+			isa = PBXGroup;
+			children = (
+				F100EA721834DDCD0022A176 /* EasytoMoreTests.m */,
+				F100EA6D1834DDCD0022A176 /* Supporting Files */,
+			);
+			path = EasytoMoreTests;
+			sourceTree = "<group>";
+		};
+		F100EA6D1834DDCD0022A176 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F100EA6E1834DDCD0022A176 /* EasytoMoreTests-Info.plist */,
+				F100EA6F1834DDCD0022A176 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F100EA491834DDCD0022A176 /* EasytoMore */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F100EA761834DDCD0022A176 /* Build configuration list for PBXNativeTarget "EasytoMore" */;
+			buildPhases = (
+				F100EA461834DDCD0022A176 /* Sources */,
+				F100EA471834DDCD0022A176 /* Frameworks */,
+				F100EA481834DDCD0022A176 /* Resources */,
+				F100EA7C1834DDDC0022A176 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EasytoMore;
+			productName = EasytoMore;
+			productReference = F100EA4A1834DDCD0022A176 /* EasytoMore.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F100EA641834DDCD0022A176 /* EasytoMoreTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F100EA791834DDCD0022A176 /* Build configuration list for PBXNativeTarget "EasytoMoreTests" */;
+			buildPhases = (
+				F100EA611834DDCD0022A176 /* Sources */,
+				F100EA621834DDCD0022A176 /* Frameworks */,
+				F100EA631834DDCD0022A176 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F100EA6B1834DDCD0022A176 /* PBXTargetDependency */,
+			);
+			name = EasytoMoreTests;
+			productName = EasytoMoreTests;
+			productReference = F100EA651834DDCD0022A176 /* EasytoMoreTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F100EA421834DDCD0022A176 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = Seamus;
+				TargetAttributes = {
+					F100EA641834DDCD0022A176 = {
+						TestTargetID = F100EA491834DDCD0022A176;
+					};
+				};
+			};
+			buildConfigurationList = F100EA451834DDCD0022A176 /* Build configuration list for PBXProject "EasytoMore" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = F100EA411834DDCD0022A176;
+			productRefGroup = F100EA4B1834DDCD0022A176 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F100EA491834DDCD0022A176 /* EasytoMore */,
+				F100EA641834DDCD0022A176 /* EasytoMoreTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F100EA481834DDCD0022A176 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F100EA581834DDCD0022A176 /* InfoPlist.strings in Resources */,
+				F100EA601834DDCD0022A176 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F100EA631834DDCD0022A176 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F100EA711834DDCD0022A176 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		F100EA7C1834DDDC0022A176 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#/bin/sh\n# Date: 2013-06-20\n# Author: Seamus\n# Sina Weibo: @qdvictory\n\n#Run when \"Build Configuration\" is \"Debug\". You can change to \"ad_hoc\",\"Release\" and so on\nif [ \"${CONFIGURATION}\" = \"Debug\" ]; then\n\n############################开发者配置#################################\n#icon地址(相对于项目根目录)\npathtoartwork=\"iFurniture/icon/120.png\"\n#####################################################################\n\n#获取app名\nipaname=`/usr/libexec/PlistBuddy -c \"Print :CFBundleDisplayName $REV\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"`\n#获取版本号\nversion=`/usr/libexec/PlistBuddy -c \"Print :CFBundleVersion $REV\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"`\n#appid\nappid=`/usr/libexec/PlistBuddy -c \"Print :CFBundleIdentifier $REV\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"`\n\n#打包.ipa\n/bin/mkdir $CONFIGURATION_BUILD_DIR/Payload\n/bin/cp -R $CONFIGURATION_BUILD_DIR/${ipaname}.app $CONFIGURATION_BUILD_DIR/Payload\n/bin/cp ${pathtoartwork} $CONFIGURATION_BUILD_DIR/iTunesArtwork\ncd $CONFIGURATION_BUILD_DIR\n\n# zip up the directory\n/usr/bin/zip -r ${ipaname}.ipa Payload iTunesArtwork\n\n#fir.im上传第一步\nd=`curl \"http://fir.im/api/upload_url?appid=\"${appid}`\n#fir.im上传第二步\npostFile=`echo ${d}| ruby -e \"require 'rubygems'; require 'json'; puts JSON[STDIN.read]['postFile'];\"`\npostIcon=`echo ${d}| ruby -e \"require 'rubygems'; require 'json'; puts JSON[STDIN.read]['postIcon'];\"`\nshorturl=`echo ${d}| ruby -e \"require 'rubygems'; require 'json'; puts JSON[STDIN.read]['short'];\"`\ncurl -T ${ipaname}.ipa ${postFile} -X PUT\ncurl -T $CONFIGURATION_BUILD_DIR/iTunesArtwork ${postIcon} -X PUT\n#fir.im上传第三步\npostData='appid='${appid}'&short='${shorturl}'&version='${version}'&name='${ipaname}\nr=`curl -X POST -d ${postData} -H \"Content-Type: application/x-www-form-urlencoded; charset=utf-8\" \"http://fir.im/api/finish\"`\nshort=`echo ${r}| ruby -e \"require 'rubygems'; require 'json'; puts JSON[STDIN.read]['short'];\"`\n#输出url\n`osascript -e 'tell app \"System Events\" to (display dialog \"恭喜您，IPA上传完成。复制地址即可下载。\\nhttp://fir.im/'${short}'\" with title \"IPA一键分享\" buttons {\"ok\"})'`\n\n#删除临时文件\nrm -R $CONFIGURATION_BUILD_DIR/Payload\nrm ${ipaname}.ipa\n\nfi\nexit 0";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F100EA461834DDCD0022A176 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F100EA5E1834DDCD0022A176 /* AppDelegate.m in Sources */,
+				F100EA5A1834DDCD0022A176 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F100EA611834DDCD0022A176 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F100EA731834DDCD0022A176 /* EasytoMoreTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F100EA6B1834DDCD0022A176 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F100EA491834DDCD0022A176 /* EasytoMore */;
+			targetProxy = F100EA6A1834DDCD0022A176 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F100EA561834DDCD0022A176 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F100EA571834DDCD0022A176 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		F100EA6F1834DDCD0022A176 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F100EA701834DDCD0022A176 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F100EA741834DDCD0022A176 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		F100EA751834DDCD0022A176 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F100EA771834DDCD0022A176 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "EasytoMore/EasytoMore-Prefix.pch";
+				INFOPLIST_FILE = "EasytoMore/EasytoMore-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		F100EA781834DDCD0022A176 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "EasytoMore/EasytoMore-Prefix.pch";
+				INFOPLIST_FILE = "EasytoMore/EasytoMore-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		F100EA7A1834DDCD0022A176 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/EasytoMore.app/EasytoMore";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "EasytoMore/EasytoMore-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "EasytoMoreTests/EasytoMoreTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		F100EA7B1834DDCD0022A176 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/EasytoMore.app/EasytoMore";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "EasytoMore/EasytoMore-Prefix.pch";
+				INFOPLIST_FILE = "EasytoMoreTests/EasytoMoreTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F100EA451834DDCD0022A176 /* Build configuration list for PBXProject "EasytoMore" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F100EA741834DDCD0022A176 /* Debug */,
+				F100EA751834DDCD0022A176 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F100EA761834DDCD0022A176 /* Build configuration list for PBXNativeTarget "EasytoMore" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F100EA771834DDCD0022A176 /* Debug */,
+				F100EA781834DDCD0022A176 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		F100EA791834DDCD0022A176 /* Build configuration list for PBXNativeTarget "EasytoMoreTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F100EA7A1834DDCD0022A176 /* Debug */,
+				F100EA7B1834DDCD0022A176 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F100EA421834DDCD0022A176 /* Project object */;
+}
