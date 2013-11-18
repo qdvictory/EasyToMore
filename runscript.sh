@@ -13,6 +13,10 @@ pathtoartwork="iFurniture/icon/120.png"
 
 #获取app名
 ipaname=`/usr/libexec/PlistBuddy -c "Print :CFBundleDisplayName $REV" "${TARGET_BUILD_DIR}/${INFOPLIST_PATH}"`
+#target name
+target=$TARGET_NAME
+#空格转义
+displayname=$(perl -MURI::Escape -e 'print uri_escape("'"${ipaname}"'");' "$2")
 #获取版本号
 version=`/usr/libexec/PlistBuddy -c "Print :CFBundleVersion $REV" "${TARGET_BUILD_DIR}/${INFOPLIST_PATH}"`
 #appid
@@ -22,12 +26,12 @@ projectpath=`pwd`
 
 #打包.ipa
 /bin/mkdir $CONFIGURATION_BUILD_DIR/Payload
-/bin/cp -R $CONFIGURATION_BUILD_DIR/${ipaname}.app $CONFIGURATION_BUILD_DIR/Payload
+/bin/cp -R $CONFIGURATION_BUILD_DIR/${target}.app $CONFIGURATION_BUILD_DIR/Payload
 /bin/cp ${pathtoartwork} $CONFIGURATION_BUILD_DIR/iTunesArtwork
 cd $CONFIGURATION_BUILD_DIR
 
 # zip up the directory
-/usr/bin/zip -r ${ipaname}.ipa Payload iTunesArtwork
+/usr/bin/zip -r ${target}.ipa Payload iTunesArtwork
 
 #get last commit if have
 gitcommit=`git --git-dir=${projectpath}/.git log -1 --oneline --pretty=format:'%s'`
@@ -38,10 +42,10 @@ d=`curl "http://fir.im/api/upload_url?appid="${appid}`
 postFile=`echo ${d}| ruby -e "require 'rubygems'; require 'json'; puts JSON[STDIN.read]['postFile'];"`
 postIcon=`echo ${d}| ruby -e "require 'rubygems'; require 'json'; puts JSON[STDIN.read]['postIcon'];"`
 shorturl=`echo ${d}| ruby -e "require 'rubygems'; require 'json'; puts JSON[STDIN.read]['short'];"`
-curl -T ${ipaname}.ipa ${postFile} -X PUT
+curl -T ${target}.ipa ${postFile} -X PUT
 curl -T $CONFIGURATION_BUILD_DIR/iTunesArtwork ${postIcon} -X PUT
 #fir.im上传第三步
-postData='appid='${appid}'&short='${shorturl}'&version='${version}'&name='${ipaname}
+postData='appid='${appid}'&short='${shorturl}'&version='${version}'&name='${displayname}
 if [ "${gitcommit}" ]; then
 gitcommit=$(perl -MURI::Escape -e 'print uri_escape("'"${gitcommit}"'");' "$2")
 postData=${postData}'&changelog='${gitcommit}
@@ -53,7 +57,7 @@ short=`echo ${r}| ruby -e "require 'rubygems'; require 'json'; puts JSON[STDIN.r
 
 #删除临时文件
 rm -R $CONFIGURATION_BUILD_DIR/Payload
-rm ${ipaname}.ipa
+rm ${target}.ipa
 
 fi
 exit 0
