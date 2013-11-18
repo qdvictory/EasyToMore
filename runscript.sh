@@ -17,6 +17,8 @@ ipaname=`/usr/libexec/PlistBuddy -c "Print :CFBundleDisplayName $REV" "${TARGET_
 version=`/usr/libexec/PlistBuddy -c "Print :CFBundleVersion $REV" "${TARGET_BUILD_DIR}/${INFOPLIST_PATH}"`
 #appid
 appid=`/usr/libexec/PlistBuddy -c "Print :CFBundleIdentifier $REV" "${TARGET_BUILD_DIR}/${INFOPLIST_PATH}"`
+#获取当前目录
+projectpath=`pwd`
 
 #打包.ipa
 /bin/mkdir $CONFIGURATION_BUILD_DIR/Payload
@@ -26,6 +28,9 @@ cd $CONFIGURATION_BUILD_DIR
 
 # zip up the directory
 /usr/bin/zip -r ${ipaname}.ipa Payload iTunesArtwork
+
+#get last commit if have
+gitcommit=`git --git-dir=${projectpath}/.git log -1 --oneline --pretty=format:'%s'`
 
 #fir.im上传第一步
 d=`curl "http://fir.im/api/upload_url?appid="${appid}`
@@ -37,6 +42,10 @@ curl -T ${ipaname}.ipa ${postFile} -X PUT
 curl -T $CONFIGURATION_BUILD_DIR/iTunesArtwork ${postIcon} -X PUT
 #fir.im上传第三步
 postData='appid='${appid}'&short='${shorturl}'&version='${version}'&name='${ipaname}
+if [ "${gitcommit}" ]; then
+gitcommit=$(perl -MURI::Escape -e 'print uri_escape("'"${gitcommit}"'");' "$2")
+postData=${postData}'&changelog='${gitcommit}
+fi
 r=`curl -X POST -d ${postData} -H "Content-Type: application/x-www-form-urlencoded; charset=utf-8" "http://fir.im/api/finish"`
 short=`echo ${r}| ruby -e "require 'rubygems'; require 'json'; puts JSON[STDIN.read]['short'];"`
 #输出url

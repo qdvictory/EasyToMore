@@ -2,7 +2,7 @@ Thanks for [fir.im](http://fir.im)
 
 ===========================
 1. This shell will upload .ipa to [fir.im](http://fir.im) and others can install from it.
-2. This shell only be used for share .ipa to others. So you already configured code signing identity right.
+2. This shell only be used for share .ipa to others. So make sure you already configured code signing identity right.
 
 ===========================
 
