@@ -22,7 +22,8 @@ version=`/usr/libexec/PlistBuddy -c "Print :CFBundleVersion $REV" "${TARGET_BUIL
 #appid
 appid=`/usr/libexec/PlistBuddy -c "Print :CFBundleIdentifier $REV" "${TARGET_BUILD_DIR}/${INFOPLIST_PATH}"`
 #获取当前目录
-projectpath=`pwd`
+projectpath="$(pwd | sed 's/ /\\ /g')"
+gitpath=`pwd`
 
 #打包.ipa
 /bin/mkdir $CONFIGURATION_BUILD_DIR/Payload
@@ -34,7 +35,7 @@ cd $CONFIGURATION_BUILD_DIR
 /usr/bin/zip -r ${target}.ipa Payload iTunesArtwork
 
 #get last commit if have
-gitcommit=`git --git-dir=${projectpath}/.git log -1 --oneline --pretty=format:'%s'`
+gitcommit=`git --git-dir="${gitpath}/.git" log -1 --oneline --pretty=format:'%s'`
 
 #fir.im上传第一步
 d=`curl "http://fir.im/api/upload_url?appid="${appid}`
