@@ -38,7 +38,7 @@ cd $CONFIGURATION_BUILD_DIR
 gitcommit=`git --git-dir="${gitpath}/.git" log -1 --oneline --pretty=format:'%s'`
 
 #fir.im上传第一步
-d=`curl "http://fir.im/api/upload_url?appid="${appid}`
+d=`curl "http://firapp.duapp.com/api/upload_url?appid="${appid}`
 #fir.im上传第二步
 postFile=`echo ${d}| ruby -e "require 'rubygems'; require 'json'; puts JSON[STDIN.read]['postFile'];"`
 postIcon=`echo ${d}| ruby -e "require 'rubygems'; require 'json'; puts JSON[STDIN.read]['postIcon'];"`
@@ -51,7 +51,7 @@ if [ "${gitcommit}" ]; then
 gitcommit=$(perl -MURI::Escape -e 'print uri_escape("'"${gitcommit}"'");' "$2")
 postData=${postData}'&changelog='${gitcommit}
 fi
-r=`curl -X POST -d ${postData} -H "Content-Type: application/x-www-form-urlencoded; charset=utf-8" "http://fir.im/api/finish"`
+r=`curl -X POST -d ${postData} -H "Content-Type: application/x-www-form-urlencoded; charset=utf-8" "http://firapp.duapp.com/api/finish"`
 short=`echo ${r}| ruby -e "require 'rubygems'; require 'json'; puts JSON[STDIN.read]['short'];"`
 #输出url
 `osascript -e 'tell app "System Events" to (display dialog "恭喜您，IPA上传完成。复制地址即可下载。\nhttp://fir.im/'${short}'" with title "IPA一键分享" buttons {"ok"})'`
