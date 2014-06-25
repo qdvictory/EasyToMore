@@ -19,6 +19,7 @@
 		F100EA691834DDCD0022A176 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F100EA511834DDCD0022A176 /* UIKit.framework */; };
 		F100EA711834DDCD0022A176 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F100EA6F1834DDCD0022A176 /* InfoPlist.strings */; };
 		F100EA731834DDCD0022A176 /* EasytoMoreTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F100EA721834DDCD0022A176 /* EasytoMoreTests.m */; };
+		F128B5B2195A7988008BA724 /* iTunesArtwork.png in Resources */ = {isa = PBXBuildFile; fileRef = F128B5B1195A7988008BA724 /* iTunesArtwork.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		F100EA6E1834DDCD0022A176 /* EasytoMoreTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "EasytoMoreTests-Info.plist"; sourceTree = "<group>"; };
 		F100EA701834DDCD0022A176 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F100EA721834DDCD0022A176 /* EasytoMoreTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EasytoMoreTests.m; sourceTree = "<group>"; };
+		F128B5B1195A7988008BA724 /* iTunesArtwork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iTunesArtwork.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 		F100EA531834DDCD0022A176 /* EasytoMore */ = {
 			isa = PBXGroup;
 			children = (
+				F128B5B1195A7988008BA724 /* iTunesArtwork.png */,
 				F100EA5C1834DDCD0022A176 /* AppDelegate.h */,
 				F100EA5D1834DDCD0022A176 /* AppDelegate.m */,
 				F100EA5F1834DDCD0022A176 /* Images.xcassets */,
@@ -220,6 +223,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F128B5B2195A7988008BA724 /* iTunesArtwork.png in Resources */,
 				F100EA581834DDCD0022A176 /* InfoPlist.strings in Resources */,
 				F100EA601834DDCD0022A176 /* Images.xcassets in Resources */,
 			);
@@ -247,7 +251,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#/bin/sh\n# Date: 2013-06-20\n# Author: Seamus\n# Sina Weibo: @qdvictory\n\n#Run when \"Build Configuration\" is \"Debug\". You can change to \"ad_hoc\",\"Release\" and so on\nif [ \"${CONFIGURATION}\" = \"Debug\" ]; then\n\n############################开发者配置#################################\n#icon地址(相对于项目根目录)\npathtoartwork=\"iFurniture/icon/120.png\"\n#####################################################################\n\n#获取app名\nipaname=`/usr/libexec/PlistBuddy -c \"Print :CFBundleDisplayName $REV\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"`\n#target name\ntarget=$TARGET_NAME\n#空格转义\ndisplayname=$(perl -MURI::Escape -e 'print uri_escape(\"'\"${ipaname}\"'\");' \"$2\")\n#获取版本号\nversion=`/usr/libexec/PlistBuddy -c \"Print :CFBundleVersion $REV\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"`\n#appid\nappid=`/usr/libexec/PlistBuddy -c \"Print :CFBundleIdentifier $REV\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"`\n#获取当前目录\nprojectpath=\"$(pwd | sed 's/ /\\\\ /g')\"\ngitpath=`pwd`\n\n#打包.ipa\n/bin/mkdir $CONFIGURATION_BUILD_DIR/Payload\n/bin/cp -R $CONFIGURATION_BUILD_DIR/${target}.app $CONFIGURATION_BUILD_DIR/Payload\n/bin/cp ${pathtoartwork} $CONFIGURATION_BUILD_DIR/iTunesArtwork\ncd $CONFIGURATION_BUILD_DIR\n\n# zip up the directory\n/usr/bin/zip -r ${target}.ipa Payload iTunesArtwork\n\n#get last commit if have\ngitcommit=`git --git-dir=\"${gitpath}/.git\" log -1 --oneline --pretty=format:'%s'`\n\n#fir.im上传第一步\nd=`curl \"http://firapp.duapp.com/api/upload_url?appid=\"${appid}`\n#fir.im上传第二步\npostFile=`echo ${d}| ruby -e \"require 'rubygems'; require 'json'; puts JSON[STDIN.read]['postFile'];\"`\npostIcon=`echo ${d}| ruby -e \"require 'rubygems'; require 'json'; puts JSON[STDIN.read]['postIcon'];\"`\nshorturl=`echo ${d}| ruby -e \"require 'rubygems'; require 'json'; puts JSON[STDIN.read]['short'];\"`\ncurl -T ${target}.ipa ${postFile} -X PUT\ncurl -T $CONFIGURATION_BUILD_DIR/iTunesArtwork ${postIcon} -X PUT\n#fir.im上传第三步\npostData='appid='${appid}'&short='${shorturl}'&version='${version}'&name='${displayname}\nif [ \"${gitcommit}\" ]; then\ngitcommit=$(perl -MURI::Escape -e 'print uri_escape(\"'\"${gitcommit}\"'\");' \"$2\")\npostData=${postData}'&changelog='${gitcommit}\nfi\nr=`curl -X POST -d ${postData} -H \"Content-Type: application/x-www-form-urlencoded; charset=utf-8\" \"http://firapp.duapp.com/api/finish\"`\nshort=`echo ${r}| ruby -e \"require 'rubygems'; require 'json'; puts JSON[STDIN.read]['short'];\"`\n#输出url\n`osascript -e 'tell app \"System Events\" to (display dialog \"恭喜您，IPA上传完成。复制地址即可下载。\\nhttp://fir.im/'${short}'\" with title \"IPA一键分享\" buttons {\"ok\"})'`\n\n#删除临时文件\nrm -R $CONFIGURATION_BUILD_DIR/Payload\nrm ${target}.ipa\n\nfi\nexit 0";
+			shellScript = "#/bin/sh\n# Date: 2013-06-20\n# Author: Seamus\n# Sina Weibo: @qdvictory\n\n#Run when \"Build Configuration\" is \"Debug\". You can change to \"ad_hoc\",\"Release\" and so on\nif [ \"${CONFIGURATION}\" = \"Debug\" ]; then\n\n############################开发者配置#################################\n#icon地址(相对于项目根目录)\npathtoartwork=\"EasytoMore/iTunesArtwork.png\"\n#Note:token 用于识别用户身份, 如果请求不带token 作为匿名访问处理. token可以在用户信息中找到(只有上传过应用的用户才具有使用开发者API的权限)\ntoken=\"qingzixingxiugai\"\n#####################################################################\n\n#获取app名\nipaname=`/usr/libexec/PlistBuddy -c \"Print :CFBundleDisplayName $REV\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"`\n#target name\ntarget=$TARGET_NAME\n#空格转义\ndisplayname=$(perl -MURI::Escape -e 'print uri_escape(\"'\"${ipaname}\"'\");' \"$2\")\n#获取版本号\nversion=`/usr/libexec/PlistBuddy -c \"Print :CFBundleVersion $REV\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"`\n#appid\nappid=`/usr/libexec/PlistBuddy -c \"Print :CFBundleIdentifier $REV\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"`\n#获取当前目录\nprojectpath=\"$(pwd | sed 's/ /\\\\ /g')\"\ngitpath=`pwd`\n\n#打包.ipa\n/bin/mkdir $CONFIGURATION_BUILD_DIR/Payload\n/bin/cp -R $CONFIGURATION_BUILD_DIR/${target}.app $CONFIGURATION_BUILD_DIR/Payload\n/bin/cp ${pathtoartwork} $CONFIGURATION_BUILD_DIR/iTunesArtwork\ncd $CONFIGURATION_BUILD_DIR\n\n# zip up the directory\n/usr/bin/zip -r ${target}.ipa Payload iTunesArtwork\n\n#get last commit if have\ngitcommit=`git --git-dir=\"${gitpath}/.git\" log -1 --oneline --pretty=format:'%s'`\n\n#fir.im上传第一步\nd=`curl \"http://fir.im/api/v2/app/info/:\"${appid}\"?token=\"${token}`\npkgkey=`echo ${d}| ruby -e \"require 'rubygems'; require 'json'; puts JSON[STDIN.read]['bundle']['pkg']['key'];\"`\npkgurl=`echo ${d}| ruby -e \"require 'rubygems'; require 'json'; puts JSON[STDIN.read]['bundle']['pkg']['url'];\"`\npkgtoken=`echo ${d}| ruby -e \"require 'rubygems'; require 'json'; puts JSON[STDIN.read]['bundle']['pkg']['token'];\"`\niconkey=`echo ${d}| ruby -e \"require 'rubygems'; require 'json'; puts JSON[STDIN.read]['bundle']['icon']['key'];\"`\niconurl=`echo ${d}| ruby -e \"require 'rubygems'; require 'json'; puts JSON[STDIN.read]['bundle']['icon']['url'];\"`\nicontoken=`echo ${d}| ruby -e \"require 'rubygems'; require 'json'; puts JSON[STDIN.read]['bundle']['icon']['token'];\"`\npkgid=`echo ${d}| ruby -e \"require 'rubygems'; require 'json'; puts JSON[STDIN.read]['id'];\"`\n\nup=`curl -F \"key=\"${iconkey} -F \"token=\"${icontoken} -F \"file=@\"$CONFIGURATION_BUILD_DIR\"/iTunesArtwork\" ${iconurl}`\nupipa=`curl -F \"key=\"${pkgkey} -F \"token=\"${pkgtoken} -F \"file=@\"${target}\".ipa\" ${pkgurl}`\neditinfo=`curl -d \"changelog=\"${gitcommit}\"&version=\"${version} -X PUT \"http://fir.im/api/v2/app/\"${pkgid}\"?token=\"${token}`\n\n\n#删除临时文件\nrm -R $CONFIGURATION_BUILD_DIR/Payload\nrm ${target}.ipa\n\nshort=`echo ${editinfo}| ruby -e \"require 'rubygems'; require 'json'; puts JSON[STDIN.read]['short'];\"`\n#输出url\n`osascript -e 'tell app \"System Events\" to (display dialog \"恭喜您，IPA上传完成。复制地址即可下载。\\nhttp://fir.im/'${short}'\" with title \"IPA一键分享\" buttons {\"ok\"})'`\n\nfi\nexit 0\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
