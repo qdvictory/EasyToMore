@@ -40,7 +40,7 @@ cd $CONFIGURATION_BUILD_DIR
 gitcommit=`git --git-dir="${gitpath}/.git" log -1 --oneline --pretty=format:'%s'`
 
 #fir.im上传第一步
-d=`curl "http://fir.im/api/v2/app/info/:"${appid}"?token="${token}`
+d=`curl "http://fir.im/api/v2/app/info/"${appid}"?token="${token}`
 pkgkey=`echo ${d}| ruby -e "require 'rubygems'; require 'json'; puts JSON[STDIN.read]['bundle']['pkg']['key'];"`
 pkgurl=`echo ${d}| ruby -e "require 'rubygems'; require 'json'; puts JSON[STDIN.read]['bundle']['pkg']['url'];"`
 pkgtoken=`echo ${d}| ruby -e "require 'rubygems'; require 'json'; puts JSON[STDIN.read]['bundle']['pkg']['token'];"`
