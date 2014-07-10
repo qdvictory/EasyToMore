@@ -6,6 +6,9 @@
 #Run when "Build Configuration" is "Debug". You can change to "ad_hoc","Release" and so on
 if [ "${CONFIGURATION}" = "Debug" ]; then
 
+#set char type 
+export LC_CTYPE=en_US.UTF-8
+
 ############################开发者配置#################################
 #icon地址(相对于项目根目录)
 pathtoartwork="EasytoMore/iTunesArtwork.png"
