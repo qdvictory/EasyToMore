@@ -39,6 +39,11 @@ cd $CONFIGURATION_BUILD_DIR
 # zip up the directory
 /usr/bin/zip -r ${target}.ipa Payload iTunesArtwork
 
+# repack ipa
+ditto -xk ${target}.ipa /tmp/tmpipa
+ditto -ck --norsrc /tmp/tmpipa ${target}.ipa
+rm -r /tmp/tmpipa
+
 #get last commit if have
 gitcommit=`git --git-dir="${gitpath}/.git" log -1 --oneline --pretty=format:'%s'`
 
