@@ -31,17 +31,17 @@ projectpath="$(pwd | sed 's/ /\\ /g')"
 gitpath=`pwd`
 
 #打包.ipa
-/bin/mkdir $CONFIGURATION_BUILD_DIR/Payload
-/bin/cp -R $CONFIGURATION_BUILD_DIR/${target}.app $CONFIGURATION_BUILD_DIR/Payload
-/bin/cp ${pathtoartwork} $CONFIGURATION_BUILD_DIR/iTunesArtwork
-cd $CONFIGURATION_BUILD_DIR
+/bin/mkdir "$CONFIGURATION_BUILD_DIR/Payload"
+/bin/cp -R "$CONFIGURATION_BUILD_DIR/${PRODUCT_NAME}.app" "$CONFIGURATION_BUILD_DIR/Payload"
+/bin/cp "${pathtoartwork}" "$CONFIGURATION_BUILD_DIR/iTunesArtwork"
+cd "$CONFIGURATION_BUILD_DIR"
 
 # zip up the directory
-/usr/bin/zip -r ${target}.ipa Payload iTunesArtwork
+/usr/bin/zip -r "${PRODUCT_NAME}.ipa" Payload iTunesArtwork
 
 # repack ipa
-ditto -xk ${target}.ipa /tmp/tmpipa
-ditto -ck --norsrc /tmp/tmpipa ${target}.ipa
+ditto -xk "${PRODUCT_NAME}.ipa" /tmp/tmpipa
+ditto -ck --norsrc /tmp/tmpipa "${PRODUCT_NAME}.ipa"
 rm -r /tmp/tmpipa
 
 #get last commit if have
@@ -58,13 +58,13 @@ icontoken=`echo ${d}| ruby -e "require 'rubygems'; require 'json'; puts JSON[STD
 pkgid=`echo ${d}| ruby -e "require 'rubygems'; require 'json'; puts JSON[STDIN.read]['id'];"`
 
 up=`curl -F "key="${iconkey} -F "token="${icontoken} -F "file=@"$CONFIGURATION_BUILD_DIR"/iTunesArtwork" ${iconurl}`
-upipa=`curl -F "key="${pkgkey} -F "token="${pkgtoken} -F "file=@"${target}".ipa" ${pkgurl}`
+upipa=`curl -F "key="${pkgkey} -F "token="${pkgtoken} -F "file=@"${PRODUCT_NAME}".ipa" ${pkgurl}`
 editinfo=`curl -d "changelog="${gitcommit}"&version="${version} -X PUT "http://fir.im/api/v2/app/"${pkgid}"?token="${token}`
 
 
 #删除临时文件
-rm -R $CONFIGURATION_BUILD_DIR/Payload
-rm ${target}.ipa
+rm -R "$CONFIGURATION_BUILD_DIR/Payload"
+rm "${PRODUCT_NAME}.ipa"
 
 short=`echo ${editinfo}| ruby -e "require 'rubygems'; require 'json'; puts JSON[STDIN.read]['short'];"`
 #输出url
